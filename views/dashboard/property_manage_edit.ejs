@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/styles2.css">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!--sidebar-->
+    <div class="d-flex" id="wrapper">
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light">
+                Dashboard
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="/dashboard" class="list-group-item list-group-item-action list-group-item-light p-3">Dashboard</a>
+                <a href="/dashboard/property" class="list-group-item list-group-item-action list-group-item-light p-3">Property</a>
+                <a href="/dashboard/user" class="list-group-item list-group-item-action list-group-item-light p-3">User</a>
+                <a href="/logout" class="list-group-item list-group-item-action list-group-item-light p-3">Logout</a>
+            </div>
+        </div>
+
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                </div>
+            </nav>
+
+            <div class="container-fluid p-4">
+                <h1 class="mt-4">แก้ไขข้อมูลอสังหา</h1>
+                <form method="POST" action="/dashboard/property/edit" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<%= item.id %>">
+
+                    <div>
+                        <label for="real_estate_name" class="form-label">ชื่ออสังหา:</label>
+                        <input type="text" id="real_estate_name" name="real_estate_name" value="<%= item.real_estate_name %>">
+                    </div>
+                    <div>
+                        <label for="lat" class="form-label">ละติจูด:</label>
+                        <input type="text" id="lat" name="lat" value="<%= item.lat %>">
+                    </div>
+                    <div>
+                        <label for="lon" class="form-label">ลองจิจูด:</label>
+                        <input type="text" id="lon" name="lon" value="<%= item.lon %>">
+                    </div>
+
+                    <div>
+                        <label for="LOCATION" class="form-label">ที่ตั้ง:</label>
+                        <input type="text" id="LOCATION" name="LOCATION" value="<%= item.LOCATION %>">
+                    </div>
+                    <div>
+                        <label for="property_type" class="form-label">ประเภทอสังหา:</label>
+                        <select type="text" name="property_type" id="">
+                            <option value="<%= item.property_type%>" selected ><%= item.property_type%></option>
+                            <option value="house" >House</option>
+                            <option value="condominium">Condominium</option>
+                            <!-- <option value="land" >Land</option> -->
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="TRANSACTION" class="form-label">การทำธุรกรรม:</label>
+                        <select type="text" name="TRANSACTION" id="">
+                            <option value="<%= item.TRANSACTION%>" selected ><%= item.TRANSACTION%></option>
+                            <option value="FOR SELL ONLY" >FOR SELL ONLY</option>
+                            <option value="RENT UP TO 6 MONTHS">RENT UP TO 6 MONTHS</option>
+                            <!-- <option value="FOR RENT AND FOR SELL" >FOR RENT AND FOR SELL</option> -->
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="SALE_TERMS" class="form-label">เงื่อนไขการขาย:</label>
+                        <select type="text" name="SALE_TERMS" id="">
+                            <option value="<%= item.SALE_TERMS%>" selected ><%= item.SALE_TERMS%></option>
+                            <option value="LEASEHOLD" >LEASEHOLD</option>
+                            <!-- <option value="FREEHOLD">FREEHOLD</option> -->                            
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="SALE_PRICE" class="form-label">ราคาขาย:</label>
+                        <input type="text" id="SALE_PRICE" name="SALE_PRICE" value="<%= item.SALE_PRICE %>">
+                    </div>
+
+                    <div>
+                        <label for="RENT_PRICE" class="form-label">ราคาเช่า:</label>
+                        <input type="text" id="RENT_PRICE" name="RENT_PRICE" value="<%= item.RENT_PRICE %>">
+                    </div>
+                    <div>
+                        <label for="COMMON_CHARGES" class="form-label">ค่าส่วนกลาง:</label>
+                        <input type="text" id="COMMON_CHARGES" name="COMMON_CHARGES" value="<%= item.COMMON_CHARGES %>">
+                    </div>
+                    <div>
+                        <label for="DECORATION_STYLE" class="form-label">สไตล์ตกแต่ง:</label>
+                        <input type="text" id="DECORATION_STYLE" name="DECORATION_STYLE" value="<%= item.DECORATION_STYLE %>">
+                    </div>
+
+                    <div>
+                        <label for="BEDROOMS" class="form-label">จำนวนห้องนอน:</label>
+                        <input type="text" id="BEDROOMS" name="BEDROOMS" value="<%= item.BEDROOMS %>">
+                    </div>
+                    <div>
+                        <label for="BATHROOMS" class="form-label">จำนวนห้องน้ำ:</label>
+                        <input type="text" id="BATHROOMS" name="BATHROOMS" value="<%= item.BATHROOMS %>">
+                    </div>
+
+                    <div>
+
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="UNIT_SIZE" class="form-label">ขนาดยูนิต:</label>
+                        <input type="text" id="UNIT_SIZE" name="UNIT_SIZE" value="<%= item.UNIT_SIZE %>">
+                    </div>
+
+                    <div>
+                        <label for="LAND_AREA" class="form-label">ขนาดที่ดิน:</label>
+                        <input type="text" id="LAND_AREA" name="LAND_AREA" value="<%= item.LAND_AREA %>">
+                    </div>
+                    <div>
+                        <label for="INROOM_FACILITIES" class="form-label">สิ่งอำนวยความสะดวกภายในห้อง:</label>
+                        <input type="text" id="INROOM_FACILITIES" name="INROOM_FACILITIES" value="<%= item.INROOM_FACILITIES %>">
+                    </div>
+
+                    <div>
+                        <label for="PUBLIC_FACILITIES" class="form-label">สิ่งอำนวยความสะดวกส่วนกลาง:</label>
+                        <input type="text" id="PUBLIC_FACILITIES" name="PUBLIC_FACILITIES" value="<%= item.PUBLIC_FACILITIES %>">
+                    </div>
+                    <div>
+                        <label for="image_01" class="form-label">รูปภาพ 1:</label>
+                        <input type="file" id="image_01" name="image_01" value="<%= item.image_01 %>">
+                    </div>
+                    <div>
+                        <label for="image_02" class="form-label">รูปภาพ 2:</label>
+                        <input type="file" id="image_02" name="image_02" value="<%= item.image_02 %>">
+                    </div>
+                    <div>
+                        <label for="image_03" class="form-label">รูปภาพ 3:</label>
+                        <input type="file" id="image_03" name="image_03" value="<%= item.image_03 %>">
+                    </div>
+
+                    <div>
+                        <label for="image_04" class="form-label">รูปภาพ 4:</label>
+                        <input type="file" id="image_04" name="image_04" value="<%= item.image_04 %>">
+                    </div>
+                    <div>
+                        <label for="image_05" class="form-label">รูปภาพ 5:</label>
+                        <input type="file" id="image_05" name="image_05" value="<%= item.image_05 %>">
+                    </div>
+
+                    <input type="submit" class="btn btn-primary" name="submit" value="EDIT">
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; MK PROPERTY 2025</p>
+        </div>
+
+    </footer>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/scripts.js"></script>
+
+</body>
+
+</html>

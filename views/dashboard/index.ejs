@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/styles2.css">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <!--sidebar-->
+    <div class="d-flex" id="wrapper">
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light">
+                Dashboard
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="/dashboard" class="list-group-item list-group-item-action list-group-item-light p-3">Dashboard</a>
+                <a href="/dashboard/property" class="list-group-item list-group-item-action list-group-item-light p-3">Property</a>
+                <a href="/dashboard/user" class="list-group-item list-group-item-action list-group-item-light p-3">User</a>
+                <a href="/logout" class="list-group-item list-group-item-action list-group-item-light p-3">Logout</a>
+            </div>
+        </div>
+
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                </div>
+            </nav>
+            <div class="container-fluid p-4">
+                <h1 class="mt-4">Welcome,
+                    <%= name %>!</h1>
+                <br/>
+                <p> You are
+                    <%= role %>!</p>
+                <p>Please select menu from the left.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; MK PROPERTY 2025</p>
+        </div>
+
+    </footer>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/scripts.js"></script>
+
+</body>
+
+</html>
