@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/path/to/favicon.ico">
+    <link href="/css/styles.css" rel="stylesheet" />
+    <title>MK Property</title>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <%- include('header') %>
+
+        <section class="py-5">
+            <div class="container px-4 px-lg-5">
+                <div class="row-cols-1 input-group-text">
+                    <form action="/search" method="GET">
+                        <input class="form-control-sm" type="text" name="keyword" size="50" placeholder="please input keyword" />
+                        <button class="btn btn-outline-dark">search</button>
+                    </form>
+                </div>
+            </div>
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5">
+                    <% items.forEach((item) => { %>
+                        <div class="col-12 col-md-6 col-lg-3 mb-5">
+                            <div class="card h-100">
+                                <img src="/property/<%= item.image_01 %>" class="card-img-top" alt="condo MK">
+                                <div class="card-body p-4 text-center">
+                                    <h5 class="card-title">
+                                        <%= item.real_estate_name %>
+                                    </h5>
+                                    <p>LOCATION:
+                                        <%= item.LOCATION %>
+                                    </p>
+                                    <p>Property type:
+                                        <%= item.property_type %>
+                                    </p>
+                                    <h5 class="fw-bolder">ขาย
+                                        <%= item.SALE_PRICE %>
+                                    </h5>
+                                    <h5 class="fw-bolder">เช่า
+                                        <%= item.RENT_PRICE %>
+                                    </h5>
+                                </div>
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="d-flex justify-content-center">
+                                        <a href="/property_detail/<%= item.id %>" class="btn btn-primary">detail</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FOOTER -->
+        <%- include('footer') %>
+
+
+</body>
+
+</html>

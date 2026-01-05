@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <link href="/css/styles.css" rel="stylesheet" />
+    <link href="/css/login.css" rel="stylesheet" />
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <%- include('header') %>
+
+        <div class="wrapper fadeInDown">
+
+            <div id="formContent">
+                <div>
+                    <div class="justify-content-center" style="background-color: aquamarine;">
+                        <h3>Please login...</h3>
+                    </div>
+                </div>
+
+                <form action="/login" method="POST">
+                    <input type="text" id="login" class="fadeIn second " name="email" placeholder="Email">
+                    <input type="password" id="password" class="fadeIn third " name="pass" placeholder="password">
+                    <input type="submit" class="fadeIn fourth" value="Log In">
+                </form>
+
+                <div id="formFooter">
+                    <a class="underlineHover" href="#">Forgot Password?</a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- FOOTER -->
+        <%- include('footer') %>
+
+
+</body>
+
+</html>
